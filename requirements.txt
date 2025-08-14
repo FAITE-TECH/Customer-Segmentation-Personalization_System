@@ -1,8 +1,17 @@
-
-fastapi
-uvicorn
-pandas
-scikit-learn
-openpyxl
-streamlit
-requests
+# FastAPI for serving the backend
+fastapi==0.115.0
+# Uvicorn for ASGI server
+uvicorn==0.30.6
+# CORS support included by FastAPI but ensure starlette is present
+starlette==0.38.5
+# Data and model stack
+pandas==2.2.2
+numpy==1.26.4
+scikit-learn==1.5.1
+joblib==1.4.2
+# For reading Excel files
+openpyxl==3.1.5
+# Frontend app
+streamlit==1.37.1
+# HTTP client for Streamlit to call the backend
+requests==2.32.3

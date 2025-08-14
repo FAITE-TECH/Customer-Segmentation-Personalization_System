@@ -1,47 +1,26 @@
-# Customer Segmentation & Personalization (Demo)
+# Customer Segmentation & Personalization
 
-This repository contains a minimal demo scaffold:
+## Quickstart
 
-- FastAPI backend (backend/)
-- Streamlit frontend (frontend/)
-- Sample Online Retail II dataset (backend/online_retail_II.xlsx)
-
-## Run backend
-
-cd backend
-pip install -r requirements.txt
-uvicorn main:app --reload --port 8000
-
-## Run frontend (in a separate terminal)
-
-cd frontend
-pip install streamlit requests
-streamlit run dashboard.py
-
-Default API_URL in Streamlit expects the backend at http://localhost:8000
+1. `python -m venv .venv && source .venv/bin/activate` (or activate on Windows).
+2. `pip install -r requirements.txt`
+3. `python data/make_sample_data.py` # creates data/online_retail_II_sample.csv
+4. `python backend/train.py` # trains and exports artifacts
+5. `uvicorn backend.main:app --reload` # starts the API at http://127.0.0.1:8000
+6. Create `.streamlit/secrets.toml` in `frontend/` with `API_URL="http://127.0.0.1:8000"`.
+7. `streamlit run frontend/dashboard.py` # launches the UI.
 
 ## File structure
 
-```
-customer_segmentation_app
-├── backend
-│   ├── data
-│   │   └── online_retail_II.xlsx
-│   ├── dynamic_content.py
-│   ├── email_personalization.py
-│   ├── journey_mapping.py
-│   ├── main.py
-│   ├── marketing.py
-│   ├── models
-│   │   ├── personalization.py
-│   │   └── __init__.py
-│   ├── predictive_analytics.py
-│   ├── recommendations.py
-│   ├── segmentation.py
-│   ├── utils.py
-│   └── utils.py
-├── frontend
-│   ├── dashboard.py
-│   └── requirements.txt
-└── README.md
-```
+backend/
+└── main.py
+└── train.py
+└── models/
+└── (generated .pkl files after training)
+data/
+└── make_sample_data.py
+└── online_retail_II.xlsx
+frontend/
+└── dashboard.py
+requirements.txt
+README.md
