@@ -11,7 +11,7 @@
 7. `streamlit run frontend/dashboard.py` # launches the UI.
 
 ## File structure
-
+```
 backend/
 └── main.py
 └── train.py
@@ -24,3 +24,5 @@ frontend/
 └── dashboard.py
 requirements.txt
 README.md
+```
+
